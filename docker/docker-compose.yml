@@ -477,7 +477,7 @@ services:
     image: supabase/supavisor:2.5.1
     restart: unless-stopped
     ports:
-      - ${POSTGRES_PORT}:5432
+      - "5434:5432" # Changed host port to 5434 for the primary connection
       - ${POOLER_PROXY_PORT_TRANSACTION}:6543
     volumes:
       - ./volumes/pooler/pooler.exs:/etc/pooler/pooler.exs:ro,z
